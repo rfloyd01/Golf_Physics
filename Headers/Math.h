@@ -10,6 +10,8 @@ struct Vector_3d
 	double z = 0;
 };
 
+double Integrate(double x1, double x2, double delta_t);
+
 float DotProduct(std::vector<float> vec1, std::vector<float> vec2);
 std::vector<float> CrossProduct(std::vector<float> vec1, std::vector<float> vec2);
 
@@ -35,4 +37,5 @@ Vector_3d CrossProduct(Vector_3d A, Vector_3d B);
 Vector_3d VectorAdd(Vector_3d A, Vector_3d B);
 void VectorMult(Vector_3d& A, double s);
 double VectorMagnitude(Vector_3d A);
+void Normalize(Vector_3d& A);
 Vector_3d VectorProjection(Vector_3d A, Vector_3d B);
