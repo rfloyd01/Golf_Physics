@@ -1,5 +1,7 @@
 #pragma once
 #include "Math.h"
+#include <map>
+#include <string>
 
 struct Golf_Club
 {
@@ -10,6 +12,10 @@ struct Golf_Club
 	double clubhead_height; //height of the clubhead in meters
 	double clubhead_width; //thickness of the clubhead in meters
 	double clubhead_cm_height; //ratio of the height of the clubs center of mass vs. the total height of the club
+
+	//Longer clubs will have a faster clubhead speed than shorter clubs given the same hand speed for the golfer. This variable takes this into account.
+	//A driver has a modifier of 1.0 (the fastest club) while a lob wedge has a modifier of 0.7 (the slowest club). Other clubs will fall somewhere between this range
+	double speed_modifier;
 
 	//The moments of inertia for the clubhead about 3 axes (all passing through the CM of the club).
 	//First axis is through the normal of the clubface, second axis runs straight up the clubface and third axis runs along the length of the clubface
@@ -40,3 +46,5 @@ struct Golf_Ball
 	double radius; //the radius of the golfball in m
 	double Moment_of_Inertia; //the moment of inertia of the golfball in kg/m^2. This value is the same about any axis
 };
+
+std::map<std::string, Golf_Club> generateClubs();
