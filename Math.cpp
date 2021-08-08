@@ -2,6 +2,11 @@
 //#include <Header_Files/eigen.h>
 #include "Math.h"
 
+double Integrate(double x1, double x2, double delta_t)
+{
+    return (x1 + x2) / 2.0 * delta_t;
+}
+
 //Dot and Cross product functions
 float DotProduct(std::vector<float> vec1, std::vector<float> vec2)
 {
@@ -302,6 +307,13 @@ void VectorMult(Vector_3d& A, double s)
 double VectorMagnitude(Vector_3d A)
 {
     return sqrt(A.x * A.x + A.y * A.y + A.z * A.z);
+}
+void Normalize(Vector_3d& A)
+{
+    double mag = 1.0 / VectorMagnitude(A);
+    A.x *= mag;
+    A.y *= mag;
+    A.z *= mag;
 }
 Vector_3d VectorProjection(Vector_3d A, Vector_3d B)
 {
